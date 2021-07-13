@@ -9,7 +9,8 @@ class ContextRepl {
   constructor(context) {
     this.context = vm.createContext(context)
     this.prompt = createPrompt({
-      history: createPromptHistory()
+      history: createPromptHistory(),
+      sigint: true,
     })
   }
 
