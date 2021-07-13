@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/dmcclory/context-repl/issues"
   },
-  "homepage": "https://github.com/dmcclory/context-repl#readme"
+  "homepage": "https://github.com/dmcclory/context-repl#readme",
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
 }
