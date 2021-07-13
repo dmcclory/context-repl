@@ -1,9 +1,22 @@
 const vm = require('vm');
+const createPrompt = require('prompt-sync');
+const createPromptHistory = require('prompt-sync-history');
 
 class ContextRepl {
 
   constructor(context) {
     this.context = vm.createContext(context)
+    this.prompt = createPrompt({
+      history: createPromptHistory()
+    })
+  }
+
+  runLoop() {
+    while(true) {
+      const input = this.prompt('> ');
+      const result = this.run(input);
+      console.log(result);
+    }
   }
 
   run(codeString) {
@@ -11,7 +24,8 @@ class ContextRepl {
       return this.runCommand(codeString);
     }
     try {
-      vm.runInContext(codeString, this.context);
+      const result = vm.runInContext(codeString, this.context);
+      return result;
     } catch(error) {
       return error.message
     }
