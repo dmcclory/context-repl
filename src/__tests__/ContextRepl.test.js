@@ -21,7 +21,7 @@ describe('.variables', () => {
 describe('evaluating code', () => {
   it('returns the value of an expression', () => {
     const repl = new ContextRepl({foo: 50, bar: 30})
-    expect(repl.run('3 + 5') === 8)
+    expect(repl.eval('3 + 5') === 8)
   })
 
 })
@@ -29,7 +29,7 @@ describe('evaluating code', () => {
 describe('executing commands', () => {
   it('.help returns a message with the list of commands', () => {
     const repl = new ContextRepl({foo: 50})
-    const result = repl.run(".help")
+    const result = repl.eval(".help")
     expect(result.match('.ls, .list - show available variables')).not.toBe(null)
     expect(result.match('.help - show available commands')).not.toBe(null)
   })

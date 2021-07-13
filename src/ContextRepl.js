@@ -2,6 +2,8 @@ const vm = require('vm');
 const createPrompt = require('prompt-sync');
 const createPromptHistory = require('prompt-sync-history');
 
+const PROMPT_LABEL = "> "
+
 class ContextRepl {
 
   constructor(context) {
@@ -13,13 +15,17 @@ class ContextRepl {
 
   runLoop() {
     while(true) {
-      const input = this.prompt('> ');
-      const result = this.run(input);
-      console.log(result);
+      const input = this.read();
+      const result = this.eval(input);
+      this.print(result);
     }
   }
 
-  run(codeString) {
+  read() {
+    return this.prompt(PROMPT_LABEL);
+  }
+
+  eval(codeString) {
     if(codeString.startsWith('.')) {
       return this.runCommand(codeString);
     }
@@ -29,6 +35,10 @@ class ContextRepl {
     } catch(error) {
       return error.message
     }
+  }
+
+  print(result) {
+    console.log(result);
   }
 
   runCommand(command) {
