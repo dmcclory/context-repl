@@ -21,5 +21,9 @@
   "homepage": "https://github.com/dmcclory/context-repl#readme",
   "devDependencies": {
     "jest": "^27.0.6"
+  },
+  "dependencies": {
+    "prompt-sync": "^4.2.0",
+    "prompt-sync-history": "^1.0.1"
   }
 }
