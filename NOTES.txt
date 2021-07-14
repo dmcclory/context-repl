@@ -1,0 +1,13 @@
+
+-  [ ] assignments with let & const don't get added to the context
+  - can probably work around that by parsing
+  - and evaling any new variables that get set
+
+
+- [ ] we could probably show strings as `"foo"` instead of `foo`
+
+- [ ] it'd be nice to colorize the output, at least a little bit
+
+- [ ] figure out how to handle typescript
+
+- [ ] set up prettier / any other linting
